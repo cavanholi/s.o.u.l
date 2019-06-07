@@ -20,13 +20,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        randomPlayer()
         update()
     }
     
     @IBAction func choice(_ sender: UIButton) {
         // update the scene index number every time any button is pressed
         // it sends a 'sender.tag - 1' becaue the default value for tag is 0! why not make it -1?!
-        currentScene = sceneCheck(sender.tag - 1)
+
+        pathCheck(sender.tag - 1)
         update()
     }
     
@@ -39,52 +41,21 @@ class ViewController: UIViewController {
         player.smell  = Int(arc4random_uniform(7) + 3)
         player.listen = Int(arc4random_uniform(7) + 3)
     }
-    
-    func sceneCheck(_ op: Int) -> Int {
-        // finds the scene with the index value equal to the currentScene variable
-        // and calls a path checking, passing an index value derived from 'sender.tag'
-        // the index (variable op) will alwways have a number between '0' and '1'
-        for scene in story.sceneList {
-            if scene.index == currentScene { return pathCheck(scene, op) }
-        }
-        return 1 // because I HAVE to return something, better return the starting scene
-    }
-    
-    func pathCheck(_ s: Scene, _ op: Int) -> Int {
-        // finds the path to which the button pressed made reference
-        // and returns its value, which is the next scene index
-        for path in story.pathList {
-            if path.index == s.path[op] { return path.target }
-        }
-        return 1 // because I HAVE to return something ...
+
+    func pathCheck(_ index: Int) {
+        currentScene = story.pathBase[story.sceneBase[currentScene]!.path[index]]!.target
     }
     
     func update() {
-        // finds the correct scene and updates the text on the screen
-        // once the right scece is found, update the main option button
-        // if there is a second option (i.e. scene.path[1] different than '0'), check if there is any skill associated to that option
-        // if not, update the button text
-        // if there is a skill tied to the option, call skillTest, updates if the test of successfull, makes the button visible and updates the text
-        // in either there is no second option or the test failed, the button is set to invisible
-        for scene in story.sceneList {
-            if scene.index == currentScene {
-                textField.text = scene.text
-                for path in story.pathList {
-                    if path.index == scene.path[0] {
-                        btnOptionA.setTitle(path.text, for: .normal)
-                    } else if scene.path[1] == 0 {
-                        btnOptionB.isHidden = true // this is redundante with ...
-                    } else if path.index == scene.path[1] {
-                        if skillTest(scene.skill) {
-                            btnOptionB.setTitle(path.text, for: .normal)
-                            btnOptionB.isHidden = false
-                        } else {
-                            btnOptionB.isHidden = true // ... with this, but I can't make them a single line, somehow, yet.
-                        }
-                    }
-                }
-            }
-        }
+        // update textField, btnOptionA and btnOptionB text
+        //   still need to figure out why the need for unwrapping a dictionary value
+        textField.text = story.sceneBase[currentScene]!.text
+        btnOptionA.setTitle(story.pathBase[story.sceneBase[currentScene]!.path[0]]!.text, for: .normal)
+        if story.sceneBase[currentScene]!.path[1] == 0 { btnOptionB.isHidden = true }
+        else if skillTest(story.sceneBase[currentScene]!.skill) {
+            btnOptionB.setTitle(story.pathBase[story.sceneBase[currentScene]!.path[1]]!.text, for: .normal)
+            btnOptionB.isHidden = false
+        } else { btnOptionB.isHidden = true }
     }
     
     func skillTest(_ skill : String) -> Bool {

@@ -48,6 +48,12 @@ The layout, if basic and crude, is functional.<br />
 
 ## Updates
 - 07.VI (0.1 ~ 0.1.1): Skill Check and Random Player Skills implemented
+- 07.VI (0.1.1b): "Update to populate class and update method"
+ - Refactored Populate Class to use dictionary instead of list for both Scene and Path base
+ - Refactored ViewController.update() to use new data structure from Populate
+ - Removed ViewController.sceneCheck(). Scenes are referenced directly using sceneBase dictionary Keys
+ - Refactored ViewController.pathCheck to use new data structured from Populate
+ 
 
 ## Copywrite
 All Rights Reserved, for now ...
