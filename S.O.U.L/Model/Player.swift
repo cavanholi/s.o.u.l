@@ -10,12 +10,12 @@ import Foundation
 
 class Player {
     let name  : String
-    let ref   : Int  // Reflex [1..10]
-    let will  : Int  // Will Power [1..10]
-    let sight : Int  // Senses (Sight) [1..10]
-    let smell : Int  // Senses (Smell) [1..10]
-    let listen : Int // Senses (Listen) [1..10]
-    var level : Int = 20
+    var ref   : Int  // Reflex [1..10]
+    var will  : Int  // Will Power [1..10]
+    var sight : Int  // Senses (Sight) [1..10]
+    var smell : Int  // Senses (Smell) [1..10]
+    var listen : Int // Senses (Listen) [1..10]
+    var level : Int = 20 // player level must due to skillTest for when there is no skill associated. // It is a mess, I know.
     
     init (name: String, ref: Int = 10, will: Int = 10, sight: Int = 10, smell: Int = 10, listen: Int = 10) {
         self.name  = name
@@ -34,7 +34,7 @@ class Player {
             case "sight": return self.sight
             case "smell": return self.smell
             case "listen": return self.listen
-            default: return self.level
+            default: return self.level 
         }
     }
 }

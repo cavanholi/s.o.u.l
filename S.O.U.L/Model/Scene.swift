@@ -17,11 +17,7 @@ class Scene {
     init (index: Int, text: String, path: [Int], skill: String = "none") {
         self.index = index
         self.text  = text
-        //if let p = path { self.path = p }
-        //else { self.path = [-1] }
-        self.path = path
-        //if let s = skill { self.skill = s }
-        //else { self.skill = "" }
+        self.path  = path
         self.skill = skill
     }
 }
