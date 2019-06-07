@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        randomPlayer()
         update()
     }
     
@@ -32,16 +31,6 @@ class ViewController: UIViewController {
         update()
     }
     
-    func randomPlayer() {
-        // generate random values to Player Skills.
-        // minimum of 3, maximum of 10
-        player.ref    = Int(arc4random_uniform(7) + 3) // this needless simatric space is so deslegant!
-        player.will   = Int(arc4random_uniform(7) + 3)
-        player.sight  = Int(arc4random_uniform(7) + 3)
-        player.smell  = Int(arc4random_uniform(7) + 3)
-        player.listen = Int(arc4random_uniform(7) + 3)
-    }
-
     func pathCheck(_ index: Int) {
         currentScene = story.pathBase[story.sceneBase[currentScene]!.path[index]]!.target
     }
@@ -61,7 +50,7 @@ class ViewController: UIViewController {
     func skillTest(_ skill : String) -> Bool {
         // return the success of the player in the test of a given skill.
         // for the second option to work when there is no skill associated, player leve must be 20!
-        if player.skillCheck(skill) >= (Int(arc4random_uniform(10)) + 5) { return true }
+        if player.skillCheck(skill) >= (Int.random(in: 0...10)) { return true }
         else { return false }
     }
 }

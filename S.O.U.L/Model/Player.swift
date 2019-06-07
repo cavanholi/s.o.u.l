@@ -15,9 +15,9 @@ class Player {
     var sight : Int  // Senses (Sight) [1..10]
     var smell : Int  // Senses (Smell) [1..10]
     var listen : Int // Senses (Listen) [1..10]
-    var level : Int = 20 // player level must due to skillTest for when there is no skill associated. // It is a mess, I know.
     
-    init (name: String, ref: Int = 10, will: Int = 10, sight: Int = 10, smell: Int = 10, listen: Int = 10) {
+    init (name: String, ref: Int = Int.random(in: 3...10), will: Int = Int.random(in: 3...10), sight: Int = Int.random(in: 3...10), smell: Int = Int.random(in: 3...10), listen: Int = Int.random(in: 3...10)) {
+        // initiate skills with a random value between 3 and 10 unless it is specified at player creation
         self.name  = name
         self.ref   = ref
         self.will  = will
@@ -34,7 +34,7 @@ class Player {
             case "sight": return self.sight
             case "smell": return self.smell
             case "listen": return self.listen
-            default: return self.level 
+            default: return 100
         }
     }
 }
