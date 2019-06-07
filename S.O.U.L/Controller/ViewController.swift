@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         update()
     }
@@ -43,10 +42,19 @@ class ViewController: UIViewController {
         return 1
     }
     
+    func checkSkill(_ skill: String) -> Bool {
+        if skill != "None" {
+            if player.skillCheck(skill) < (Int(arc4random_uniform(9)) + 11) { return false }
+        }
+        return true
+    }
+    
     func update() {
         for scene in story.sceneList {
             if scene.index == currentScene {
                 textField.text = scene.text
+                let skillTest = checkSkill(scene.skill)
+                print(skillTest)
                 for path in story.pathList {
                     if path.index == scene.path[0] {
                         btnOptionA.setTitle(path.text, for: .normal)

@@ -15,6 +15,7 @@ class Player {
     let sight : Int  // Senses (Sight) [1..10]
     let smell : Int  // Senses (Smell) [1..10]
     let listen : Int // Senses (Listen) [1..10]
+    var level : Int = 20
     
     init (name: String, ref: Int = 10, will: Int = 10, sight: Int = 10, smell: Int = 10, listen: Int = 10) {
         self.name  = name
@@ -23,5 +24,17 @@ class Player {
         self.sight = sight
         self.smell = smell
         self.listen = listen
+    }
+    
+    func skillCheck(_ skill: String) -> Int {
+        // I really don't like this, but until I learn to proper use Dictionary, if they can be properly used (as in python), it will have to do.
+        switch skill {
+            case "ref": return self.ref
+            case "will": return self.will
+            case "sight": return self.sight
+            case "smell": return self.smell
+            case "listen": return self.listen
+            default: return self.level
+        }
     }
 }
