@@ -14,7 +14,7 @@ class Scene {
     let path  : [Int]  // List with INDEX values of possible options (path) [1, 2] // If nil, Scene ends
     let skill : String // Optional: skill name to be tested
     
-    init (index: Int, text: String, path: [Int], skill: String = "None") {
+    init (index: Int, text: String, path: [Int], skill: String = "none") {
         self.index = index
         self.text  = text
         //if let p = path { self.path = p }
