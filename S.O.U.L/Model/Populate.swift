@@ -32,10 +32,11 @@ class Populate {
         scene[11] = Scene(index : 11, text : "On the next day, long after the storm had ended, you return to the bridge.\nIt lies broken, the rotten ropes had snapped with the wind force.\nYou consider yourself lucky, for it could have failed while you were crossing.", path : [16, 0])
         scene[12] = Scene( index : 12, text : "Sadly, there is no other way across. \nYour journey came to an end you didn’t expected.\nBut far from the be the worse finale.", path : [17, 0])
         scene[13] = Scene(index : 13, text : "You follow the narrow path, so close to the chasm it is scary, but no sudden gust of wind hit you again and soon you found yourself walking away from it.\nAt the end, you see a small hut, it looks abandoned, there is no door. But it is a good enough place to spend the night, a far closer than the village.", path : [19, 0])
-        scene[14] = Scene(index : 14, text : "The sun shines bright and the stormy wind turned back into a pleasant breeze by next morning.\nThe bridge is still there, still looking dangerous, but safe enough, if the wind hadn’t blow it away, you are quite sure it would hold yourself.", path : [20, 0])
+        scene[14] = Scene(index : 14, text : "The sun shines bright and the stormy wind turned back into a pleasant breeze by next morning.\nThe bridge is still there, still looking dangerous, but safe enough, if the wind hadn’t blow it away, you are quite sure it would hold yourself.", path : [20, 21], item : "Cursed Ring")
         scene[15] = Scene(index : 15, text : "With great care you inch your way across it. With the bridge swing with each step, each plank cracking under your feet.\nBut no bad surprises happen and you make your way across safely.\nThe next bridge you would have to cross, it will be a firm stone one at the end of your journey.", path : [14, 0])
         scene[16] = Scene(index : 16, text : "As you step ahead a sudden gust of wind make you almost tumble forward.", path : [4, 5], skill : "sight")
         scene[17] = Scene(index : 17, text : "As you turn around a sudden gust of wind make you almost tumble backward.", path : [6, 7], skill : "sight")
+        scene[18] = Scene(index : 18, text : "You fiddle with the ring in your finger as you cross the bridge.\n /When did I put it on?/ You wonder about halfway. \nSo absorted you were, you didn't even heard the sound of the ropes snapping. The ring is the last thing in your thought as you fall to your death", path : [11])
         
         return scene
     }
@@ -63,6 +64,7 @@ class Populate {
         path[18] = Path(index: 18, text: "Follow the Path", target: 13)
         path[19] = Path(index: 19, text: "Continue", target: 14)
         path[20] = Path(index: 20, text: "Cross the Bridge", target: 15)
+        path[21] = Path(index: 21, text: "/It is better hold.../", target: 18)
         
         return path
     }

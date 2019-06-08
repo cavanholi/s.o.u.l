@@ -30,8 +30,8 @@ The main structure is complete.<br />
 Skill Check tests had been implemented in a working way.<br />
 The layout, if basic and crude, is functional.<br />
 - Main Structure (0.1alpha)
-- Skill Check (0.1.1alpha)
-- Randomized Player Skill Attributes (0.1.1alpha)
+- Skill Check (0.1.1alpha) <- Updated (0.1.2a)
+- Randomized Player Skill Attributes (0.1.1alpha) <- Removed (0.1.2a)
 
 ## YET to come 
 
@@ -40,19 +40,29 @@ The layout, if basic and crude, is functional.<br />
 - Non-combat solutions
 - Quest-based options
 - NPC interactions
-- Item interactions
-- Item based options
 
 #### WORK in progress
+- Item based options
+- Item interactions
+- Adding skills and values to Player.skill
+  - Randomize them at Character Creation (app start)
 
 
 ## Updates
+- 08.VI (0.1.2a): Item Experimentation
+  - Update Player and Scene to support items
+  - Created itemCheck method in ViewController
+  - Updated Player.skills to use a dictionary instead of multiple variables for different skills
+  - Updated ViewController.skillTest() to support new Player.skill structure
+  - Updated ViewController.update() to use "Scene.path.count" instead of "Scene.path[1] == 0"
+  - Note: Scene.path[1] = 0 might be removed due to be no longer used
+  - Note: Scene.index and Path.index might be removed due to be no longer used
 - 07.VI (0.1 ~ 0.1.1): Skill Check and Random Player Skills implemented
 - 07.VI (0.1.1b): "Update to populate class and update method"
-  - Refactored Populate Class to use dictionary instead of list for both Scene and Path base
-  - Refactored ViewController.update() to use new data structure from Populate
+  - Updated Populate Class to use dictionary instead of list for both Scene and Path base
+  - Updated ViewController.update() to use new data structure from Populate
   - Removed ViewController.sceneCheck(). Scenes are referenced directly using sceneBase dictionary Keys
-  - Refactored ViewController.pathCheck to use new data structured from Populate
+  - Updated ViewController.pathCheck() to use new data structured from Populate
 - 07.VI (0.1.1b): "Updated Random Player Generation"
   - Removed randomPlayer() method from ViewController
   - Added randomization to Player.init()
