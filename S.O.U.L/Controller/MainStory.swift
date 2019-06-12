@@ -32,7 +32,10 @@ class MainStory: UIViewController {
         else { currentScene = 1 }
 //        currentScene = story.sceneBase[currentScene]?.target[sender.tag - 1]
 //        pathCheck(sender.tag - 1)
-        update()
+        if currentScene == 0 {
+            //go to starting screen
+        }
+        else { update() }
     }
     
     

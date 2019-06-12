@@ -55,13 +55,16 @@ The layout, if basic and crude, but functional.<br />
   - Character Creation
   - Re-structuring
 - Merge *Path* into *Scene* (and updated *main* methodes to reflect this change) 
+- Starting Screen *(Start > Character Creation > Story > Story End > Start)*
 
 ### KnownIssues
   - *MainStory.itemCheck()* not working after updates on *Player* and *Item*
   - *MainStory.choice()* not setting *currentScene* value to *Scene.target[tag-1]*
 
 ## Updates
-- 12.VI (0.1.1c) : **Started merging of *Path* into *Scene*.** *(of Course I broke it!)*
+- 12.VI (0.1.02c): **Fixed issue caused by previous update!**
+  - Set preparation for *StartingView* in *MainStory.choice()*
+- 12.VI (0.1.01c) : **Started merging of *Path* into *Scene*.** *(of Course I broke it!)*
 - 12.VI (0.1 celes): **Added Character Creation. Major re-structuring of Models and Controllers (see READEME.md for more details)**
   - Created CharacterCreation View and Class
     - placeholder for skill increase/decrease buttons, values and character name input
