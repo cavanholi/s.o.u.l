@@ -11,17 +11,19 @@ import Foundation
 class Populate {
     var sceneBase = [Int: Scene]()
     var pathBase  = [Int: Path]()
+    var itemBase  = [String: Item]()
     
     init() {
         self.sceneBase = popSceneBase()
         self.pathBase  = popPathBase()
+        self.itemBase  = popItems()
     }
     
     func popSceneBase() -> [Int: Scene] {
         var scene = [Int: Scene]()
         scene[1] = Scene(index : 1, text : "The calm and refreshing breeze that accompanied you at the beginning of the journey had turn into a strong storm by the time the day ended.\nTo make matters worse, as the last ray of sun vanished and darkness surrounded you, you came to long and thin bridge.", path : [1, 0])
         scene[2] = Scene(index : 2, text : "Beneath the bridge, a deep chasm opened. If there were any river down there, it was impossible to know. Darkness had already settled and the howling wind made deafened any sound the river could make.\nYou remember a small village, just a few houses really, quite a long way back.", path : [2, 3])
-        scene[3] = Scene(index : 3, text : "The wind is strong and the bridge swings madly with each step you take. You’re halfway now, turn around is no longer an option.", path : [8, 9], skill : "ref")
+        scene[3] = Scene(index : 3, text : "The wind is strong and the bridge swings madly with each step you take. You’re halfway now, turn around is no longer an option.", path : [8, 9], skill : "refl")
         scene[4] = Scene(index : 4, text : "To cross the bridge under this weather is madness. It is better to make your way back to the village.", path : [15, 0])
         scene[5] = Scene(index : 5, text : "Fearing the worst you throw your body against the wind.\nYou overdue it and fall to your knees, but you fall on safe and solid ground.\nAs you stand up you see a small path leading alongside the cliff.", path : [18, 0])
         scene[6] = Scene(index : 6, text : "Two thirds of the way, you brave your way across.\nOne fifth left, almost there. \nAlmost there, almost.", path : [10, 0])
@@ -34,8 +36,8 @@ class Populate {
         scene[13] = Scene(index : 13, text : "You follow the narrow path, so close to the chasm it is scary, but no sudden gust of wind hit you again and soon you found yourself walking away from it.\nAt the end, you see a small hut, it looks abandoned, there is no door. But it is a good enough place to spend the night, a far closer than the village.", path : [19, 0])
         scene[14] = Scene(index : 14, text : "The sun shines bright and the stormy wind turned back into a pleasant breeze by next morning.\nThe bridge is still there, still looking dangerous, but safe enough, if the wind hadn’t blow it away, you are quite sure it would hold yourself.", path : [20, 21], item : "Cursed Ring")
         scene[15] = Scene(index : 15, text : "With great care you inch your way across it. With the bridge swing with each step, each plank cracking under your feet.\nBut no bad surprises happen and you make your way across safely.\nThe next bridge you would have to cross, it will be a firm stone one at the end of your journey.", path : [14, 0])
-        scene[16] = Scene(index : 16, text : "As you step ahead a sudden gust of wind make you almost tumble forward.", path : [4, 5], skill : "sight")
-        scene[17] = Scene(index : 17, text : "As you turn around a sudden gust of wind make you almost tumble backward.", path : [6, 7], skill : "sight")
+        scene[16] = Scene(index : 16, text : "As you step ahead a sudden gust of wind make you almost tumble forward.", path : [4, 5], skill : "sens")
+        scene[17] = Scene(index : 17, text : "As you turn around a sudden gust of wind make you almost tumble backward.", path : [6, 7], skill : "sens")
         scene[18] = Scene(index : 18, text : "You fiddle with the ring in your finger as you cross the bridge.\n /When did I put it on?/ You wonder about halfway. \nSo absorted you were, you didn't even heard the sound of the ropes snapping. The ring is the last thing in your thought as you fall to your death", path : [11])
         
         return scene
@@ -67,5 +69,12 @@ class Populate {
         path[21] = Path(index: 21, text: "/It is better hold.../", target: 18)
         
         return path
+    }
+    
+    func popItems() -> [String: Item] {
+        var items = [String: Item]()
+        
+        items["Cursed Ring"] = Item(name: "Cursed Ring", skill: "sens", bonus: -3)
+        return items
     }
 }

@@ -9,48 +9,35 @@
 import Foundation
 
 class Player {
+    // SKILLS -> refl: reflexes | will: will power | sens: hightened senses | comb: combat training | fort: fortitude
     let name  : String
-    var skill = [String: Int]()
-    var items = [String]()
-//    var ref   : Int  // Reflex [1..10]
-//    var will  : Int  // Will Power [1..10]
-//    var sight : Int  // Senses (Sight) [1..10]
-//    var smell : Int  // Senses (Smell) [1..10]
-//    var listen : Int // Senses (Listen) [1..10]
-//
-//    init (name: String, ref: Int = Int.random(in: 3...10), will: Int = Int.random(in: 3...10), sight: Int = Int.random(in: 3...10), smell: Int = Int.random(in: 3...10), listen: Int = Int.random(in: 3...10)) {
-//        // initiate skills with a random value between 3 and 10 unless it is specified at player creation
-//        self.name  = name
-//        self.ref   = ref
-//        self.will  = will
-//        self.sight = sight
-//        self.smell = smell
-//        self.listen = listen
-//    }
+    var skills : [String: Int]
+    var items : [String: Item]
+    var bonus: [String: Int] = ["will": 0, "refl": 0, "fort": 0, "sens": 0, "comb": 1]
+
     
-    init (name: String, skill: [String: Int]?, items: [String]?) {
+    init (name: String, skill: [String: Int], items: [String: Item] = [:]) {
         self.name = name
-        if let hasSkill = skill {
-            self.skill = hasSkill
-        }
-        if let hasItems = items {
-            self.items = hasItems
-        }
+        self.skills = skill
+        self.items = items
     }
     
-//    func skillCheck(_ skill: String) -> Int {
-//        // I really don't like this, but until I learn to proper use Dictionary, if they can be properly used (as in python), it will have to do.
-//        switch skill {
-//            case "ref": return self.ref
-//            case "will": return self.will
-//            case "sight": return self.sight
-//            case "smell": return self.smell
-//            case "listen": return self.listen
-//            default: return 100
-//        }
-//    }
+    func gatherItem(_ item: Item) {
+        //self.items.append(itemName)
+        self.addBonus(item.skillBonus, item.bonusValue)
+        self.items[item.name] = item
+    }
     
-    func gatherItem(_ itemName: String) {
-        self.items.append(itemName)
+    func destroyItem(_ item: Item) {
+        remBonus(item.skillBonus, item.bonusValue)
+        self.items[item.name] = nil
+    }
+    
+    func addBonus(_ skill: String, _ bonus: Int) {
+        self.bonus[skill]! += bonus
+    }
+    
+    func remBonus(_ skill: String, _ bonus: Int) {
+        self.bonus[skill]! -= bonus
     }
 }
