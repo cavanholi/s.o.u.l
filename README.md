@@ -10,7 +10,7 @@ Take the first step ahead, if you dare.
 ## What is S.O.U.L
 ### from a distant past ...
 
-*PAR = Python Adventure RPG*
+*PAR = Python Adventure RPG*<br />
 *==========================*
 
 *A simple text-styled game inspired by the classics adventure fighting fantasy game from Ian Livingstone and many others.<br />
@@ -54,13 +54,15 @@ The layout, if basic and crude, but functional.<br />
   - Randomize them at Character Creation (app start)
   - Character Creation
   - Re-structuring
-- ToDo: Merge *Path* into *Scene* (and updated *main* methodes to reflect this change) 
+- Merge *Path* into *Scene* (and updated *main* methodes to reflect this change) 
 
 ### KnownIssues
   - *MainStory.itemCheck()* not working after updates on *Player* and *Item*
+  - *MainStory.choice()* not setting *currentScene* value to *Scene.target[tag-1]*
 
 ## Updates
-- 12.VI (0.1 celes): **CELES - Added Character Creation. Major re-structuring of Models and Controllers (see READEME.md for more details)**
+- 12.VI (0.1.1c) : **Started merging of *Path* into *Scene*.** *(of Course I broke it!)*
+- 12.VI (0.1 celes): **Added Character Creation. Major re-structuring of Models and Controllers (see READEME.md for more details)**
   - Created CharacterCreation View and Class
     - placeholder for skill increase/decrease buttons, values and character name input
     - character creation with name derived from name input

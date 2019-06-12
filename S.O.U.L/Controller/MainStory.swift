@@ -28,33 +28,39 @@ class MainStory: UIViewController {
     @IBAction func choice(_ sender: UIButton) {
         // update the scene index number every time any button is pressed
         // it sends a 'sender.tag - 1' becaue the default value for tag is 0! why not make it -1?!
-
-        pathCheck(sender.tag - 1)
+        if let curScene = story.sceneBase[currentScene] { currentScene = curScene.target[sender.tag - 1] }
+        else { currentScene = 1 }
+//        currentScene = story.sceneBase[currentScene]?.target[sender.tag - 1]
+//        pathCheck(sender.tag - 1)
         update()
     }
     
     
-    func pathCheck(_ index: Int) {
-        currentScene = story.pathBase[story.sceneBase[currentScene]!.path[index]]!.target
-    }
+//    func pathCheck(_ index: Int) {
+//        currentScene = story.pathBase[story.sceneBase[currentScene]!.path[index]]!.target
+//    }
     
     func update() {
         // update textField, btnOptionA and btnOptionB text
         //   still need to figure out why the need for unwrapping a dictionary value
         
 //        textField.text = story.sceneBase[currentScene]!.text
-        btnOptionA.setTitle(story.pathBase[story.sceneBase[currentScene]!.path[0]]!.text, for: .normal)
+//        btnOptionA.setTitle(story.pathBase[story.sceneBase[currentScene]!.path[0]]!.text, for: .normal)
  
         if let curScene = story.sceneBase[currentScene] {
             textField.text = curScene.text
-//            btnOptionA.setTitle(<#T##title: String?##String?#>, for: <#T##UIControl.State#>)
+            btnOptionA.setTitle(curScene.path[0], for: .normal)
             if curScene.path.count == 1 { btnOptionB.isHidden = true }
-            if curScene.path[1] == 0 { btnOptionB.isHidden = true }
+//            if curScene.path[1] == 0 { btnOptionB.isHidden = true }
             else if skillTest(curScene.skill) && itemCheck(curScene.item) {
-                if let storyText = story.pathBase[curScene.path[1]] {
-                    btnOptionB.setTitle(storyText.text, for: .normal)
+                if curScene.path.count > 1 {
+                    btnOptionB.setTitle(curScene.path[1], for: .normal)
                     btnOptionB.isHidden = false
                 }
+//                if let storyText = story.pathBase[curScene.path[1]] {
+//                    btnOptionB.setTitle(storyText.text, for: .normal)
+//                    btnOptionB.isHidden = false
+//                }
 //                btnOptionB.setTitle(story.pathBase[curScene.path[1]]!.text, for: .normal)
 //                btnOptionB.isHidden = false
             } else { btnOptionB.isHidden = true }
