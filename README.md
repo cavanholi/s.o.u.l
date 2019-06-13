@@ -51,17 +51,22 @@ The layout, if basic and crude, but functional.<br />
   - Forced Bad Items
 - Item interactions
 - Adding skills and values to Player.skill
-  - Randomize them at Character Creation (app start)
+  - Randomize them at Character Creation (app start) - *obsolete*
   - Character Creation
   - Re-structuring
-- Merge *Path* into *Scene* (and updated *main* methodes to reflect this change) 
 - Starting Screen *(Start > Character Creation > Story > Story End > Start)*
 
 ### KnownIssues
-  - *MainStory.itemCheck()* not working after updates on *Player* and *Item*
-  - *MainStory.choice()* not setting *currentScene* value to *Scene.target[tag-1]*
+  - *MainStory.itemCheck()* not working after updates on *Player* and *Item* **fixed @ 0.1.01c**
+  - *MainStory.choice()* not setting *currentScene* value to *Scene.target[tag-1]* **fixed @ 0.1.02c**
+  - Item's interactions with *Scene* still not fully functional. 
 
 ## Updates
+- 12.VI (0.1.03c): **Clear up and Item interaction**
+  - Cleaered unused comde from *MainStory*
+  - Removed obsolete *Path*
+  - Update *Scene* to include interactions based on items found
+  - Update *MainStory.itemCheck* to reflect changes in *Scene*
 - 12.VI (0.1.02c): **Fixed issue caused by previous update!**
   - Set preparation for *StartingView* in *MainStory.choice()*
 - 12.VI (0.1.01c) : **Started merging of *Path* into *Scene*.** *(of Course I broke it!)*

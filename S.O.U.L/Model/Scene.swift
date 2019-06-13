@@ -11,18 +11,23 @@ import Foundation
 class Scene {
     let index : Int
     let text  : String  // Scene description
-    //let path  : [Int]  // List with INDEX values of possible options (path) [1, 2] // If nil, Scene ends
     let skill : String // Optional: skill name to be tested
     let item  : String // Optional: item name to have in possetion
+    let itemPath : String
+    let itemTarget : Int
     let path  : [String]
-    let target : [Int]
+    var target : [Int]
+    let giveItem : String
     
-    init (index: Int, text: String, path: [String], target: [Int], skill: String = "", item: String = "") {
+    init (index: Int, text: String, path: [String], target: [Int], skill: String = "", item: String = "", itemPath: String = "", itemTarget: Int = 0, giveItem: String = "") {
         self.index = index
         self.text  = text
         self.path  = path
         self.target = target
         self.skill = skill
         self.item  = item
+        self.itemPath = itemPath
+        self.itemTarget = itemTarget
+        self.giveItem = giveItem
     }
 }
