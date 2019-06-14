@@ -9,7 +9,6 @@
 import UIKit
 
 class MainStory: UIViewController {
-    let DIFF = 7
     let story = Populate()
     var currentScene = 1  // set start scene to Scene.index of 1
     var player: Player?
@@ -26,75 +25,54 @@ class MainStory: UIViewController {
     }
     
     @IBAction func choice(_ sender: UIButton) {
-        // update the scene index number every time any button is pressed
-        // it sends a 'sender.tag - 1' becaue the default value for tag is 0! why not make it -1?!
         if let curScene = story.sceneBase[currentScene] { currentScene = curScene.target[sender.tag - 1] }
         else { currentScene = 1 }
-        if currentScene == 0 {
-            //go to starting screen
-        }
-        else { update() }
+
+        update()
     }
     
     func update() {
-        // update textField, btnOptionA and btnOptionB text
-        //   still need to figure out why the need for unwrapping a dictionary value
-        
-        if let curScene = story.sceneBase[currentScene] {
-            textField.text = curScene.text
+        if currentScene == 0 {
+            performSegue(withIdentifier: "returnToMain", sender: self)
+        }
+        if let scene = story.sceneBase[currentScene] {
+            textField.text = scene.text
             
-            if curScene.giveItem != "" {
-                if let p = player {
-                    if let it = story.itemBase[curScene.giveItem] {
-                        p.gatherItem(it)
+            btnOptionA.setTitle(scene.path[0], for: .normal)
+            btnOptionA.isEnabled = true
+            if scene.path.count > 1 {
+                btnOptionB.setTitle(scene.path[1], for: .normal)
+                btnOptionB.isEnabled = true
+            } else {
+                btnOptionB.setTitle("", for: .normal)
+                btnOptionB.isEnabled = false
+            }
+            
+            if let p = player {
+                if let skillScene = scene as? SkillScene {
+                //if let p = player {
+                    if !skillScene.skillTest(playerSkill: p.skills) { btnOptionB.isEnabled = false }
+                }
+                else if let itemScene = scene as? ItemScene {
+                    if !itemScene.hasItem(playerItem: Array(p.items.keys)) { btnOptionB.isEnabled = false }
+                    else if itemScene.forced { btnOptionA.isEnabled = false }
+                }
+                else if let gatherScene = scene as? GatherScene {
+                    if !gatherScene.isComplete() {
+                        if let sceneItem = story.itemBase[gatherScene.itemName] {
+                            if gatherScene.type == .gather {
+                                p.gatherItem(sceneItem)
+                                gatherScene.doComplete()
+                            }
+                            else if gatherScene.type == .removal { p.destroyItem(sceneItem) }
+                        } else {
+                            btnOptionB.isEnabled = false
+                        }
                     }
                 }
-            }
-            print("Scene: \(curScene.item) - Player: \(player!.items)")
-            if itemCheck(curScene.item) {
-                btnOptionA.setTitle(curScene.itemPath, for: .normal)
-                curScene.target[0] = curScene.itemTarget
-            }
-            else {
-                btnOptionA.setTitle(curScene.path[0], for: .normal)
                 
-                if curScene.path.count == 1 {
-                    btnOptionB.setTitle("", for: .normal)
-                    btnOptionB.isEnabled = false
-                }
-                else if skillTest(curScene.skill) {
-                    if curScene.path.count > 1 {
-                        btnOptionB.setTitle(curScene.path[1], for: .normal)
-                        btnOptionB.isEnabled = true
-                    }
-                } else {
-                    btnOptionB.setTitle("", for: .normal)
-                    btnOptionB.isEnabled = false
-                }
             }
         }
-    }
-    
-    func skillTest(_ skill: String) -> Bool {
-        // test player skill. // automatic pass if there is no skill to the scene
-        if let p = player {
-            if let s = p.skills[skill] {
-                if Int.random(in: 1...DIFF) > s { return false }
-                else { return true }
-            }
-        }
-        return true
-    }
-    
-    func itemCheck(_ itemName: String) -> Bool {
-        if let p = player {
-            if itemName != "" {
-                if let it = p.items[itemName] {
-                    if it.name == itemName { return true }
-                }
-            }
-        }
-        return false
     }
     
     func giveItem(_ itemName: String) {

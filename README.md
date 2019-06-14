@@ -46,22 +46,37 @@ The layout, if basic and crude, but functional.<br />
 - Improved Story
 
 #### WORK in progress
-- Item based options
-  - Optional Good Items
-  - Forced Bad Items
-- Item interactions
-- Adding skills and values to Player.skill
+- Item based options <- **0.1d**
+  - Optional Good Items <- **0.1d**
+  - Forced Bad Items <- **0.1d**
+- Item interactions <- **0.1d** 
   - Randomize them at Character Creation (app start) - *obsolete*
   - Character Creation
   - Re-structuring
-- Starting Screen *(Start > Character Creation > Story > Story End > Start)*
+- Starting Screen *(Start > Character Creation > Story > Story End > Start)* <- **0.1d**
+- Overall Layout
+- New Story. *(numeneraesque)*
 
 ### KnownIssues
-  - *MainStory.itemCheck()* not working after updates on *Player* and *Item* **fixed @ 0.1.01c**
-  - *MainStory.choice()* not setting *currentScene* value to *Scene.target[tag-1]* **fixed @ 0.1.02c**
-  - Item's interactions with *Scene* still not fully functional. 
+  - *MainStory.itemCheck()* not working after updates on *Player* and *Item* <- **fixed @ 0.1.01c**
+  - *MainStory.choice()* not setting *currentScene* value to *Scene.target[tag-1]* <- **fixed @ 0.1.02c**
+  - Item's interactions with *Scene* still not fully functional. <- **fixed @ 0.1d**
 
 ## Updates
+- 14.VI (0.1 dalta): **Starting Screen and major changes to Scene**
+  - Updated *Scene* model. Simpliefied
+  - Created *ItemScene* model for item interactions
+  - Created *SkillScene* model for skill test interactions
+  - Created *GatherScene* model to add/remove *Items* to *Player*
+  - Updated *MainStory.update()* to reflect changes in *Scene*
+  - Removed *MainStory.skillTest()*. It is now a method of *SkillScene*
+  - Removed *MainStory.itemCheck()*. It is now a method of *ItemScene*
+  - Removed *MainStory.giveItem()*. It is now a method of *Player*
+  - Removed leftover *Populate.popPath()*
+  - Updated *Player*. Removed *bonus* property, condensed into *skill* property
+  - Created *Starting Screen*
+  - Updated *MainStory.choice()* to remove uncalled condition. *(transefer to update() method)*
+  - Updated *MainStory* to enable return to *StartScreen*
 - 12.VI (0.1.03c): **Clear up and Item interaction**
   - Cleaered unused comde from *MainStory*
   - Removed obsolete *Path*

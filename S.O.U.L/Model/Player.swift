@@ -13,7 +13,6 @@ class Player {
     let name  : String
     var skills : [String: Int]
     var items : [String: Item]
-    var bonus: [String: Int] = ["will": 0, "refl": 0, "fort": 0, "sens": 0, "comb": 1]
 
     
     init (name: String, skill: [String: Int], items: [String: Item] = [:]) {
@@ -23,7 +22,6 @@ class Player {
     }
     
     func gatherItem(_ item: Item) {
-        //self.items.append(itemName)
         self.addBonus(item.skillBonus, item.bonusValue)
         self.items[item.name] = item
     }
@@ -34,10 +32,10 @@ class Player {
     }
     
     func addBonus(_ skill: String, _ bonus: Int) {
-        self.bonus[skill]! += bonus
+        self.skills[skill]! += bonus
     }
     
     func remBonus(_ skill: String, _ bonus: Int) {
-        self.bonus[skill]! -= bonus
+        self.skills[skill]! -= bonus
     }
 }

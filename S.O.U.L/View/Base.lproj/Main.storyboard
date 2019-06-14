@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cra-XC-Q5U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cpd-0I-Rah">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="536.66666666666663"/>
                                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="25"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SU6-qg-zMq" userLabel="ButtonStack">
@@ -71,11 +71,49 @@
                         <outlet property="btnOptionA" destination="49n-0D-kTI" id="ocP-Bh-sEc"/>
                         <outlet property="btnOptionB" destination="4Wz-kF-8lm" id="xb0-fm-XeJ"/>
                         <outlet property="textField" destination="0yr-eF-Bx8" id="Z20-s5-Eg7"/>
+                        <segue destination="Cpd-0I-Rah" kind="show" identifier="returnToMain" id="Ukg-fU-rFq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="18"/>
+            <point key="canvasLocation" x="841" y="12"/>
+        </scene>
+        <!--Start Screen-->
+        <scene sceneID="LUR-1u-qmk">
+            <objects>
+                <viewController id="Cpd-0I-Rah" customClass="StartScreen" customModule="S_O_U_L" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Evi-Zk-fuI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="f2m-pi-Uqi">
+                                <rect key="frame" x="16" y="94" width="343" height="307"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCy-mg-1EL">
+                                <rect key="frame" x="159" y="514" width="56" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="createChar:" destination="Cpd-0I-Rah" eventType="touchUpInside" id="Nm4-b2-S4c"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Ia1-Jv-Lyk"/>
+                    </view>
+                    <connections>
+                        <segue destination="cra-XC-Q5U" kind="show" identifier="createCharacter" id="aPI-oJ-H6m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jFI-vE-OB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-988" y="11.822660098522167"/>
         </scene>
         <!--Character Creation-->
         <scene sceneID="B3S-Ta-asl">
@@ -258,6 +296,13 @@
                                     <action selector="createPlayer:" destination="cra-XC-Q5U" eventType="touchUpInside" id="iXU-Fz-T5G"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points Left: 12/13" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6H-qK-aNH">
+                                <rect key="frame" x="123" y="688" width="131" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Sma-8W-xEY"/>
@@ -265,18 +310,17 @@
                     <connections>
                         <outlet property="combValue" destination="L4Y-I7-nl2" id="a2M-kg-o5h"/>
                         <outlet property="fortValue" destination="CKm-Kq-ivO" id="FhF-TG-Pfq"/>
-                        <outlet property="myWay" destination="mC3-iC-Dsm" id="aWP-Ku-Xrc"/>
                         <outlet property="nameField" destination="0Mr-kV-WAU" id="43g-iS-4Yf"/>
+                        <outlet property="pointsLabel" destination="b6H-qK-aNH" id="64O-9v-Ysf"/>
                         <outlet property="reflValue" destination="kAl-zR-6Kn" id="c05-mc-z9k"/>
                         <outlet property="sensValue" destination="zQc-ia-ok2" id="iv3-km-JJj"/>
                         <outlet property="willValue" destination="QbE-Te-UgF" id="fkx-Wu-C9r"/>
-                        <outlet property="xTest" destination="5ZS-Og-e7a" id="wJB-Bv-Rcg"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="storyStarted" id="lq2-Bk-fJq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3X-VQ-kdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015.2" y="17.733990147783253"/>
+            <point key="canvasLocation" x="-18.399999999999999" y="11.822660098522167"/>
         </scene>
     </scenes>
 </document>
