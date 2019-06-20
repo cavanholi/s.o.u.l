@@ -86,28 +86,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="f2m-pi-Uqi">
-                                <rect key="frame" x="16" y="94" width="343" height="307"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8N2-4y-dDq" userLabel="Main">
+                                <rect key="frame" x="10" y="113.99999999999997" width="335" height="302.66666666666669"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCy-mg-1EL">
-                                <rect key="frame" x="159" y="514" width="56" height="45"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" keyboardDismissMode="onDrag" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2m-pi-Uqi">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="302.66666666666669"/>
+                                        <string key="text">As the day comes to an end and darkness quickly descends over the mountains, you find yourself at the edge of a gorge.
+In front of you, a stone arc.
+Beyond the stone arc, a primitive suspended bridge.
+
+What do You Do?</string>
+                                        <color key="textColor" red="1" green="0.39349919548333612" blue="0.17112562138926835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="C4G-De-cVp" userLabel="Btn">
+                                <rect key="frame" x="62" y="460" width="250" height="352.66666666666669"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="createChar:" destination="Cpd-0I-Rah" eventType="touchUpInside" id="Nm4-b2-S4c"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCy-mg-1EL">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="121"/>
+                                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="30"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="Cross the Bridge ...">
+                                            <color key="titleColor" red="1" green="0.39349919550000001" blue="0.17112562140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createChar:" destination="Cpd-0I-Rah" eventType="touchUpInside" id="Nm4-b2-S4c"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="4eq-c7-mpg" userLabel="Options">
+                                        <rect key="frame" x="24" y="171" width="202" height="181.66666666666663"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7z-od-nHC">
+                                                <rect key="frame" x="0.0" y="0.0" width="82" height="181.66666666666666"/>
+                                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="23"/>
+                                                <state key="normal" title="Options">
+                                                    <color key="titleColor" red="1" green="0.39349919550000001" blue="0.17112562140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrU-Dy-Akx">
+                                                <rect key="frame" x="132" y="0.0" width="70" height="181.66666666666666"/>
+                                                <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="23"/>
+                                                <state key="normal" title="Load...">
+                                                    <color key="titleColor" red="1" green="0.39349919550000001" blue="0.17112562140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="4eq-c7-mpg" firstAttribute="height" secondItem="DCy-mg-1EL" secondAttribute="height" multiplier="15:10" id="ruu-38-oCW"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Ia1-Jv-Lyk"/>
                     </view>
                     <connections>
+                        <outlet property="btnLoad" destination="CrU-Dy-Akx" id="lUV-cI-uwr"/>
+                        <outlet property="btnOption" destination="r7z-od-nHC" id="dXL-XD-7eC"/>
+                        <outlet property="btnStart" destination="DCy-mg-1EL" id="Cbe-Tp-N8r"/>
+                        <outlet property="introText" destination="f2m-pi-Uqi" id="aPr-Qn-KzF"/>
                         <segue destination="cra-XC-Q5U" kind="show" identifier="createCharacter" id="aPI-oJ-H6m"/>
                     </connections>
                 </viewController>

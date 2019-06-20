@@ -63,6 +63,7 @@ The layout, if basic and crude, but functional.<br />
   - Item's interactions with *Scene* still not fully functional. <- **fixed @ 0.1d**
 
 ## Updates
+- 20.VI : Hyatus -> No finsihed update, merely saving for later.
 - 14.VI (0.1 dalta): **Starting Screen and major changes to Scene**
   - Updated *Scene* model. Simpliefied
   - Created *ItemScene* model for item interactions
